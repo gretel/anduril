@@ -46,6 +46,7 @@
 
 #ifdef HWDEF_H
 #include incfile(HWDEF_H)
+#endif
 
 // Per-user global overrides
 #ifdef USER_DEFAULT_H

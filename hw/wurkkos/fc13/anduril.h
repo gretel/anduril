@@ -10,10 +10,6 @@
 
 // turn on the aux LEDs while main LEDs are on
 #define USE_AUX_RGB_LEDS_WHILE_ON  20
-<<<<<<< HEAD
 #define USE_CONFIGURABLE_RGB_VOLTAGE_LEVELS
-=======
 #define USE_NUMBER_ENTRY_BIGNUM
->>>>>>> 21a5af8619434910f942ca96c5aeb4a0c26bd34f
 #define USE_INDICATOR_LED_WHILE_RAMPING
-

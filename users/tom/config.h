@@ -9,4 +9,3 @@
 #define DEFAULT_AUTOLOCK_TIME 120 // autolock time in minutes, 0 = disabled
 
 #undef DEFAULT_AUTOLOCK_TIME
-#define USE_AUX_RGB_LEDS_WHILE_ON
