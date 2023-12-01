@@ -1,4 +1,4 @@
-Models: 70
+Models: 73
 
 Model	Name                          	MCU
 -----	----                          	---
@@ -34,9 +34,6 @@ Model	Name                          	MCU
 0261	hank-noctigon-k9.3            	attiny1634
 0262	hank-noctigon-k9.3-nofet      	attiny1634
 0263	hank-noctigon-k9.3-219        	attiny1634
-0265	noctigon-k9.3-tintramp-nofet  	attiny1634	(old, use 0262)
-0266	noctigon-k9.3-tintramp-fet    	attiny1634	(old, use 0261)
-0267	noctigon-k9.3-tintramp-219    	attiny1634	(old, use 0263)
 0271	hank-noctigon-dm11            	attiny1634
 0272	hank-noctigon-dm11-nofet      	attiny1634
 0273	hank-noctigon-dm11-boost      	attiny1634
@@ -45,6 +42,7 @@ Model	Name                          	MCU
 0312	lumintop-fw3a-219             	attiny85
 0313	lumintop-fw3a-nofet           	attiny85
 0314	lumintop-fw3x-lume1           	attiny1634
+0315	lumintop-fw3x-lume1-rgbswap   	attiny1634
 0321	lumintop-blf-gt               	attiny85
 0322	lumintop-blf-gt-mini          	attiny85
 0411	fireflies-rot66               	attiny85
@@ -71,10 +69,12 @@ Model	Name                          	MCU
 0715	wurkkos-ts25                  	attiny1616
 0716	wurkkos-fc13                  	attiny1616
 0717	wurkkos-ts11                  	attiny1616
+0718	wurkkos-ts21-v2               	attiny1616
 1618	gchart-fet1-t1616             	attiny1616
 1630	thefreeman-lin16dac           	attiny1616
-1631	thefreeman-boost21-6a         	attiny1616
-1632	thefreeman-boost-fwaa         	attiny1616
+1631	thefreeman-boost21-mp3431-hdr-dac-argb	attiny1616
+1632	thefreeman-boost-fwaa-mp3432-hdr-dac-rgb	attiny1616
+1633	thefreeman-avr32dd20-devkit   	avr32dd20
 
 Duplicates:
 
