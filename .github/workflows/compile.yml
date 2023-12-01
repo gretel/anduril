@@ -33,7 +33,7 @@ jobs:
 
     - name: Compile All
       run: |
-        USER=tom ./make
+        USER=gretel ./make
         echo "ARTIFACT_NAME=${GITHUB_WORKFLOW}-$(echo "${GITHUB_REF_NAME}" | tr '":<>|*?\\/' '_')-$(git rev-parse --short ${GITHUB_SHA})-${GITHUB_RUN_NUMBER}" >> "${GITHUB_ENV}"
 
     - name: Store Artifacts
