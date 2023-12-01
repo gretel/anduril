@@ -19,18 +19,18 @@ cd dfp
 # download the zipped pack files if they don't exist yet
 mkdir -p zip
 cd zip
-[ ! -f "${F_ATTINY}" ] && wget "http://packs.download.atmel.com/${F_ATTINY}"
-[ ! -f "${F_AVRDD}"  ] && wget "http://packs.download.atmel.com/${F_AVRDD}"
+[ ! -f "${F_ATTINY}" ] && curl -OsSL "http://packs.download.atmel.com/${F_ATTINY}"
+[ ! -f "${F_AVRDD}"  ] && curl -OsSL "http://packs.download.atmel.com/${F_AVRDD}"
 
 # extract the packs
 # attiny
 cd ..
 mkdir -p attiny
 cd attiny
-unzip "../zip/${F_ATTINY}"
+unzip -q "../zip/${F_ATTINY}"
 # avrdd
 cd ..
 mkdir -p avrdd
 cd avrdd
-unzip "../zip/${F_AVRDD}"
+unzip -q "../zip/${F_AVRDD}"
 
