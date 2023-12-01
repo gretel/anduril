@@ -14,7 +14,11 @@
 // this light has three aux LED channels: R, G, B
 #define USE_AUX_RGB_LEDS
 #define USE_AUX_RGB_LEDS_WHILE_ON  10
+<<<<<<< HEAD
 #define USE_CONFIGURABLE_RGB_VOLTAGE_LEVELS
+=======
+#define USE_NUMBER_ENTRY_BIGNUM
+>>>>>>> 21a5af8619434910f942ca96c5aeb4a0c26bd34f
 #define USE_INDICATOR_LED_WHILE_RAMPING
 
 

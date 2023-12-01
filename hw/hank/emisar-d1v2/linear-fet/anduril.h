@@ -13,7 +13,9 @@
 // the aux LEDs are in the button, so use them while main LEDs are on
 #define USE_AUX_RGB_LEDS
 #define USE_AUX_RGB_LEDS_WHILE_ON  25
+
 #define USE_CONFIGURABLE_RGB_VOLTAGE_LEVELS
+#define USE_NUMBER_ENTRY_BIGNUM
 #define USE_INDICATOR_LED_WHILE_RAMPING
 
 // safe limit: max regulated power
