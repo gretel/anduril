@@ -10,6 +10,10 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@master
+      # allow 'git describe' to work, by fetching tags and history
+      with:
+        fetch-depth: 0
+        fetch-tags: true
 
     - name: Requirements
       run: |

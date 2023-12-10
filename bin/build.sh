@@ -7,8 +7,9 @@
 # same exact way, here's a script to do the same thing
 
 if [ 0 = "$#" ]; then
-  echo "Usage: build.sh TARGET"
-  echo "Example: build.sh hw/hank/emisar-d4/anduril.h"
+  echo "Usage: build.sh TARGET USER"
+  echo "Example: build.sh hw/hank/emisar-d4/anduril.h users/myuser"
+  echo "(but USER isn't implemented yet)"
   exit
 fi
 
@@ -20,8 +21,6 @@ ARGS="$*"
 UI=$(basename "$TARGET" .h)
 MODEL=$(dirname "$TARGET")
 PROGRAM="ui/$UI/$UI"
-USER_MODEL_CFG=$(dirname ${TARGET//hw/users\/$USER} )/config.h
-USER_DEFAULT_CFG=users/$USER/config.h
 
 # figure out the model number
 MODEL_NUMBER=$(head -1 "$MODEL/model")
@@ -49,7 +48,8 @@ export CC=avr-gcc
 export CPP=avr-cpp
 export OBJCOPY=avr-objcopy
 export DFPFLAGS="-B $DFPPATH/gcc/dev/$MCUNAME/ -I $DFPPATH/include/"
-INCLUDES="-I ui -I hw -I. -I.. -I../.. -I../../.."
+# TODO: include $user/ first so it can override other stuff
+INCLUDES="-I .build -I ui -I hw -I. -I.. -I../.. -I../../.."
 export CFLAGS="  -Wall -g -Os -mmcu=$MCUNAME -c -std=gnu99 -fgnu89-inline -fwhole-program $MCUFLAGS $INCLUDES -fshort-enums $DFPFLAGS"
 export CPPFLAGS="-Wall -g -Os -mmcu=$MCUNAME -C -std=gnu99 -fgnu89-inline -fwhole-program $MCUFLAGS $INCLUDES -fshort-enums $DFPFLAGS"
 export OFLAGS="-Wall -g -Os -mmcu=$MCUNAME -mrelax $DFPFLAGS"
@@ -58,16 +58,6 @@ export OBJCOPYFLAGS='--set-section-flags=.eeprom=alloc,load --change-section-lma
 export OBJS=$PROGRAM.o
 
 OTHERFLAGS="-DCFG_H=$TARGET -DMODEL_NUMBER=\"$MODEL_NUMBER\" $ARGS"
-
-if [ -f $USER_DEFAULT_CFG ]; then
-  echo "  Using custom configuration from $USER_DEFAULT_CFG"
-  OTHERFLAGS="$OTHERFLAGS -DUSER_DEFAULT_H=$USER_DEFAULT_CFG"
-fi
-
-if [ -f $USER_MODEL_CFG ]; then
-  echo "  Using custom configuration from $USER_MODEL_CFG"
-  OTHERFLAGS="$OTHERFLAGS -DUSER_MODEL_H=$USER_MODEL_CFG"
-fi
 
 function run () {
   #echo "$1" ; shift
