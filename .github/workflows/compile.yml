@@ -31,15 +31,9 @@ jobs:
       run: |
         ./make dfp
 
-    - name: Compile Some
+    - name: Compile Anduril
       run: |
-        USER=gretel ./make fireflies pl47g2
-        USER=gretel ./make wurkkos fc13
-        USER=gretel ./make wurkkos ts10
-        USER=gretel ./make wurkkos ts10 rgbaux
-        USER=gretel ./make wurkkos ts11
-        USER=gretel ./make wurkkos ts21-v2
-        USER=gretel ./make wurkkos ts25
+        USER=gretel ./make anduril
         echo "ARTIFACT_NAME=${GITHUB_WORKFLOW}-$(echo "${GITHUB_REF_NAME}" | tr '":<>|*?\\/' '_')-$(git rev-parse --short ${GITHUB_SHA})-${GITHUB_RUN_NUMBER}" >> "${GITHUB_ENV}"
 
     - name: Store Artifacts
