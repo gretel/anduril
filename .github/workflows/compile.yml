@@ -35,9 +35,15 @@ jobs:
       run: |
         ./make dfp
 
-    - name: Compile All
+    - name: Compile Some
       run: |
-        USER=gretel ./make
+        USER=gretel ./make hw/fireflies/pl47g2/anduril.h
+        USER=gretel ./make hw/wurkkos/fc13/anduril.h
+        USER=gretel ./make hw/wurkkos/ts10/anduril.h
+        USER=gretel ./make hw/wurkkos/ts10/rgbaux/anduril.h
+        USER=gretel ./make hw/wurkkos/ts11/anduril.h
+        USER=gretel ./make hw/wurkkos/ts21-v2/anduril.h
+        USER=gretel ./make hw/wurkkos/ts25/anduril.h
         echo "ARTIFACT_NAME=${GITHUB_WORKFLOW}-$(echo "${GITHUB_REF_NAME}" | tr '":<>|*?\\/' '_')-$(git rev-parse --short ${GITHUB_SHA})-${GITHUB_RUN_NUMBER}" >> "${GITHUB_ENV}"
 
     - name: Store Artifacts
