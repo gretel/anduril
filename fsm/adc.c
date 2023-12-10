@@ -29,14 +29,6 @@ void adc_voltage_mode() {
     ADC_start_measurement();
 }
 
-inline void ADC_on() {
-    #ifdef USE_THERMAL_REGULATION
-    if (go_to_standby && adc_channel == 1)
-        adc_therm_mode();
-    else
-    #endif
-        adc_voltage_mode();
-}
 
 #if 0
 #ifdef USE_VOLTAGE_DIVIDER
@@ -142,8 +134,8 @@ void adc_deferred() {
             ADC_off();
             // if any measurements were in progress, they're done now
             adc_active_now = 0;
-            // also, check both battery and temperature while asleep
-            adc_channel = !adc_channel;
+            // also, only check the battery while asleep, not the temperature
+            adc_channel = 0;
         }
     #endif
 
@@ -164,7 +156,7 @@ void adc_deferred() {
         ADC_temperature_handler();
         #ifdef USE_LVP
         // set the correct type of measurement for next time
-        if (! go_to_standby) adc_voltage_mode();
+        adc_voltage_mode();
         #endif
     }
     #endif
@@ -273,8 +265,7 @@ static void ADC_temperature_handler() {
     static uint16_t temperature_history[NUM_TEMP_HISTORY_STEPS];
     static int8_t warning_threshold = 0;
 
-    // when we are in standby always use the raw measurement
-    if (adc_reset || go_to_standby) adc_smooth[1] = adc_raw[1];
+    if (adc_reset) adc_smooth[1] = adc_raw[1];
 
     // latest 16-bit ADC reading
     // convert raw ADC value to Kelvin << 6
@@ -308,9 +299,6 @@ static void ADC_temperature_handler() {
         for(uint8_t i=0; i<NUM_TEMP_HISTORY_STEPS; i++)
             temperature_history[i] = measurement;
     }
-
-    // if we are in standby, don't do the rest since we've got the current temperature now
-    if (go_to_standby) return;
 
     // how much has the temperature changed between now and a few seconds ago?
     int16_t diff;
