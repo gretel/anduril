@@ -143,7 +143,7 @@
 #define BATTCHECK_VpT
 //#define BATTCHECK_8bars  // FIXME: breaks build
 //#define BATTCHECK_4bars  // FIXME: breaks build
-#if ROM_SIZE > 10000
+#if (ROM_SIZE > 10000)
     // battcheck displays 1.25V instead of 1.2V
     #define USE_EXTRA_BATTCHECK_DIGIT
 #endif
@@ -157,13 +157,16 @@
 
 // enable/disable various strobe modes
 #define USE_BIKE_FLASHER_MODE
-#define USE_PARTY_STROBE_MODE
 #define USE_TACTICAL_STROBE_MODE
+
+#if (ROM_SIZE > 10000)
+#define USE_PARTY_STROBE_MODE
 #define USE_LIGHTNING_MODE
 #define USE_CANDLE_MODE
 #define USE_FIREWORK_MODE
 #define USE_LIGHTHOUSE_MODE
 #define USE_BROKEN_FLUORESCENT_MODE
+#endif
 
 // boring strobes nobody really likes, but sometimes flashlight companies want
 // (these replace the fun strobe group,

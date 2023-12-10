@@ -176,16 +176,6 @@ void rgb_led_update(uint8_t mode, uint16_t arg) {
     uint8_t blink_animation_done = 0;
     #endif
 
-    // uses an odd length to avoid lining up with rainbow loop
-    static const uint8_t animation[] = {2, 1, 0, 0,  0, 0, 0, 0,  0,
-                                        1, 0, 0, 0,  0, 0, 0, 0,  0, 1};
-    static const uint8_t animation_breath[] = {0, 0, 0, 0,  0, 0, 0, 0,  0, 0, 1, 1,  2, 2,
-                                               2, 1, 1, 1,  0, 0, 0, 0,  0, 0, 0, 0,  0, 0, 0};
-    // pick a brightness from the animation sequence
-    #ifdef USE_BUTTON_LED
-    uint8_t blink_animation_done = 0;
-    #endif
-
     // pick a brightness from the animation sequence
     if (pattern == 3) {
         frame = (frame + 1) % sizeof(animation);
@@ -244,4 +234,3 @@ void rgb_led_voltage_readout(uint8_t bright) {
     rgb_led_set(color);
 }
 #endif
-
