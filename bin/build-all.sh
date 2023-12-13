@@ -87,4 +87,3 @@ function make-version-h {
 }
 
 main "$@"
-

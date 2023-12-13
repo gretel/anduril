@@ -21,4 +21,3 @@
 #define MCU_H arch/MCUNAME.h
 #define MCU_C arch/MCUNAME.c
 #include incfile(MCU_H)
-
