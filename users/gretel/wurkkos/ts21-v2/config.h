@@ -18,10 +18,11 @@
 
 // double click while on goes to full-power turbo, not ramp ceiling
 #undef DEFAULT_2C_STYLE
-#define DEFAULT_2C_STYLE 1
+#define DEFAULT_2C_STYLE 2
 
+// disable turbo in simple ui
 #undef DEFAULT_2C_STYLE_SIMPLE
-#define DEFAULT_2C_STYLE_SIMPLE 2
+#define DEFAULT_2C_STYLE_SIMPLE 0
 
 #undef INDICATOR_LED_DEFAULT_MODE
 #define INDICATOR_LED_DEFAULT_MODE ((0<<2) + 2) // high, off

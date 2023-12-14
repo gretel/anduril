@@ -48,7 +48,11 @@
 #undef BLINK_AT_RAMP_CEIL
 #endif
 
-// stop panicking at ~60% power
+#ifdef THERM_CAL_OFFSET
+#undef THERM_CAL_OFFSET
+#endif
+#define THERM_CAL_OFFSET 5
+
 #ifdef THERM_FASTER_LEVEL
 #undef THERM_FASTER_LEVEL
 #endif
