@@ -25,7 +25,7 @@ void blink_confirm(uint8_t num) {
 void blink_once() {
     uint8_t brightness = actual_level;
     uint8_t bump = brightness + BLINK_BRIGHTNESS;
-    if (bump > MAX_LEVEL) bump = 0;
+    if (bump > MAX_LEVEL) bump = BLIP_LEVEL;
 
     set_level(bump);
     delay_4ms(BLINK_ONCE_TIME/4);
@@ -38,11 +38,13 @@ void blink_some(uint8_t times) {
         delay_4ms(100); //about 0.4s
         blink_once();
     }
-}
 
 // Just go dark for a moment to indicate to user that something happened
 void blip() {
-    blip_ms(12);
+    uint8_t temp = actual_level;
+    set_level(BLIP_LEVEL);
+    delay_4ms(3);
+    set_level(temp);
 }
 
 // ms must be multiples of 4
