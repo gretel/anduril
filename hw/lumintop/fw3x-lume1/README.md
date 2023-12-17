@@ -6,9 +6,10 @@ sensor.
 
 ## Notes of interest
 
-**Flashing firmware**:  The MOSI and MISO pin are swapped, compared to a Hanklight.
-LoneOceans sent a fixed driver design to Lumintop, but the new design didn't
-get produced.  So to flash firmware, swap the wires for those two pins first.
+**Flashing firmware**:  The MOSI and MISO pin are swapped on PCBs dated 01/20,
+compared to a Hanklight.  LoneOceans sent a fixed driver design (dated 06/20)
+to Lumintop, but the new design didn't get produced.  So to flash firmware,
+swap the wires for those two pins first.
 
 **Fuses**: Lumintop seems to have shipped the FW3X with the wrong fuse values,
 so it has the MCU severely underclocked and everything runs much slower than it
