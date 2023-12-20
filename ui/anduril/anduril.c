@@ -41,11 +41,12 @@
 #include "anduril/config-default.h"
 
 /********* specific settings for known driver types *********/
-// Anduril config file name (set it here or define it at the gcc command line)
-//#define CFG_H cfg-blf-q8.h
 
-#include "fsm/tk.h"
 #include incfile(CFG_H)
+
+#ifdef HWDEF_H
+#include incfile(HWDEF_H)
+#endif
 
 // Per-user global overrides
 #ifdef USER_DEFAULT_H

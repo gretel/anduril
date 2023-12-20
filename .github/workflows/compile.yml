@@ -24,17 +24,17 @@ jobs:
       with:
         path: arch/dfp
         # new cache whenever the dfp-install script changes
-        key: ${{ runner.os }}-${{ env.cache-name }}-${GITHUB_SHA}
+        key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('ui/anduril/version.h') }}
 
     - name: Install Atmel DFPs
       if: steps.cache-dfp.outputs.cache-hit != 'true'
       run: |
-        ./make dfp
+        ./bin/dfp-install.sh
 
     - name: Compile Anduril
       continue-on-error: true
       run: |
-        USER=gretel ./make anduril
+        USER=gretel ./bin/build-all.sh
         echo "ARTIFACT_NAME=${GITHUB_WORKFLOW}-$(echo "${GITHUB_REF_NAME}" | tr '":<>|*?\\/' '_')-$(git rev-parse --short ${GITHUB_SHA})-${GITHUB_RUN_NUMBER}" >> "${GITHUB_ENV}"
 
     - name: Store Artifacts

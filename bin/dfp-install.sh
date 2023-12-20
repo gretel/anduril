@@ -6,7 +6,7 @@
 set -e
 
 V_ATTINY='2.0.368'
-V_AVRDD='2.2.253'
+V_AVRDD='2.4.286'
 F_ATTINY="Atmel.ATtiny_DFP.${V_ATTINY}.atpack"
 F_AVRDD="Atmel.AVR-Dx_DFP.${V_AVRDD}.atpack"
 
