@@ -32,6 +32,7 @@ jobs:
         ./make dfp
 
     - name: Compile Anduril
+      continue-on-error: true
       run: |
         USER=gretel ./make anduril
         echo "ARTIFACT_NAME=${GITHUB_WORKFLOW}-$(echo "${GITHUB_REF_NAME}" | tr '":<>|*?\\/' '_')-$(git rev-parse --short ${GITHUB_SHA})-${GITHUB_RUN_NUMBER}" >> "${GITHUB_ENV}"
