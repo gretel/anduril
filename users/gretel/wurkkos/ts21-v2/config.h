@@ -1,5 +1,8 @@
 // for my dad :)
 
+#undef THERM_CAL_OFFSET
+#define THERM_CAL_OFFSET 5
+
 #undef DEFAULT_THERM_CEIL
 #define DEFAULT_THERM_CEIL 45
 
@@ -18,7 +21,7 @@
 
 // double click while on goes to full-power turbo, not ramp ceiling
 #undef DEFAULT_2C_STYLE
-#define DEFAULT_2C_STYLE 2
+#define DEFAULT_2C_STYLE 1
 
 // disable turbo in simple ui
 #undef DEFAULT_2C_STYLE_SIMPLE

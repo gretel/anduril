@@ -10,3 +10,7 @@
 // lockout: blinking (3)
 #undef INDICATOR_LED_DEFAULT_MODE
 #define INDICATOR_LED_DEFAULT_MODE ((3<<2) + 1)
+
+// no blue tint for me please
+#undef DEFAULT_2C_STYLE
+#define DEFAULT_2C_STYLE 0
