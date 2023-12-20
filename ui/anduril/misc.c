@@ -38,6 +38,7 @@ void blink_some(uint8_t times) {
         delay_4ms(100); //about 0.4s
         blink_once();
     }
+}
 
 // Just go dark for a moment to indicate to user that something happened
 void blip() {
