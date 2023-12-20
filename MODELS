@@ -77,7 +77,7 @@ Model     MCU         Name
 1630      attiny1616  thefreeman-lin16dac
 1631      attiny1616  thefreeman-boost21-mp3431-hdr-dac-argb
 1632      attiny1616  thefreeman-boost-fwaa-mp3432-hdr-dac-rgb
-1632dd20  avr32dd20   thefreeman-avr32dd20-devkit
+1633      avr32dd20   thefreeman-avr32dd20-devkit
 
 Duplicates:
 
