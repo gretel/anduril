@@ -24,7 +24,7 @@ jobs:
       with:
         path: arch/dfp
         # new cache whenever the dfp-install script changes
-        key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('bin/dfp-install.sh') }}
+        key: ${{ runner.os }}-${{ env.cache-name }}-${GITHUB_SHA}
 
     - name: Install Atmel DFPs
       if: steps.cache-dfp.outputs.cache-hit != 'true'
