@@ -1,4 +1,4 @@
-// for my dad :)
+// the defaults don't make this light usable much cause of heat. so restrain the simple ui
 
 #undef THERM_CAL_OFFSET
 #define THERM_CAL_OFFSET 5
@@ -29,5 +29,3 @@
 
 #undef INDICATOR_LED_DEFAULT_MODE
 #define INDICATOR_LED_DEFAULT_MODE ((0<<2) + 2) // high, off
-
-#undef USE_AUTOLOCK
